@@ -5,7 +5,7 @@ import MediaCard from './cards.jsx'
 // import { Card } from '@mui/material';
  import { useEffect, useState } from 'react';
  import Grid from '@mui/material/Grid2';
- import Box from '@mui/material/Box';
+ //import Box from '@mui/material/Box';
 
 function App() {
 
@@ -13,12 +13,12 @@ const [videosData, setvideosData]=useState([]);
 
 const fetchVideosData= async()=>{
   try{
-    const res = await fetch("https://content-xflix-backend.azurewebsites.net/v1/videos ")
+    const res = await fetch("https://content-xflix-backend.azurewebsites.net/v1/videos ");
     const data= await res.json();
     setvideosData(data.videos);
   }catch(err){
     console.error(err);
-    alert("Error fetching videos. Please try again later.")  // Add a more robust error handling mechanism here.
+    alert("Error fetching videos. Please try again later.")  
   }
 };
 useEffect(()=>{
@@ -28,11 +28,11 @@ useEffect(()=>{
   return (
       
           <Grid container > 
-          {videosData.map((video, Item) =>{         
-            <Grid key={video.id} size={{xs:12,   md:6, lg:3}} >
-            <MediaCard videos={video} />
+          {videosData.map((item, idx) =>(        
+            <Grid key={item.id} size={{xs:12, md:6, lg:3}} >
+            <MediaCard video={item}  hasBtn={idx %2? true:false} />
           </Grid>   
-          })}       
+          ))}       
         </Grid>
      
         )
