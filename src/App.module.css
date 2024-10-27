@@ -1,0 +1,19 @@
+.gridContainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .gridItem {
+    display: flex;
+    justify-content: center;
+    padding: 10px; /* Spacing between cards */
+  }
+  
+  .card {
+    width: 100%;   /* Ensures it adapts to grid item size */
+    height: 300px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }

@@ -6,8 +6,11 @@ import MediaCard from './cards.jsx'
  import { useEffect, useState } from 'react';
  import Grid from '@mui/material/Grid2';
  //import Box from '@mui/material/Box';
+ import style from './App.module.css'
 
-function App() {
+
+
+ export default function App() {
 
 const [videosData, setvideosData]=useState([]);
 
@@ -27,15 +30,13 @@ useEffect(()=>{
 
   return (
       
-          <Grid container > 
-          {videosData.map((item, idx) =>(        
-            <Grid key={item.id} size={{xs:12, md:6, lg:3}} >
-            <MediaCard video={item}  hasBtn={idx %2? true:false} />
-          </Grid>   
-          ))}       
-        </Grid>
+    <Grid container spacing={3} className={style.gridContainer}>
+    {videosData.map((item, idx) => (
+      <Grid item key={item.id} xs={12} sm={6} md={4} lg={3} className={style.gridItem}>
+        <MediaCard video={item} hasBtn={idx % 2 === 1} />
+      </Grid>
+    ))}
+  </Grid>
      
-        )
+        );
       }
-
-export default App;

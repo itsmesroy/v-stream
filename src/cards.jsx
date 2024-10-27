@@ -5,19 +5,22 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import style from './App.module.css'
 
 
-export default function MediaCard({videos}) {
+
+
+export default function MediaCard({video}) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card className={style.card} sx={{ width: 200, height: 300 }}>
       <CardMedia
         sx={{ height: 140 }}
-        image={videos.previewImage}
-        title={videos.title}
+        image={video?.previewImage}
+        title={video?.title}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {videos.title}
+          {video?.title}
         </Typography>        
       </CardContent>
       <CardActions>
